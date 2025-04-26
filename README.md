@@ -71,4 +71,16 @@ kubectl describe role <role-name> -n <namespace>
 kubectl auth can-i <verb> <resource> --as=<username>
 ```
 
-Would you like me to delve deeper into any specific aspect of Kubernetes RBAC?
+## User Created -> Role and User Binding -> Role -> Permissions
+
+```txt
+[Role] ---> defines ---> [Permissions] (what actions are allowed on which resources)
+
+[User] 
+   |
+   v
+[RoleBinding] ---> binds ---> [Role]
+
+(Or alternatively:)
+[RoleBinding] ---> binds ---> [User] + [Role]
+```
